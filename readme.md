@@ -239,16 +239,7 @@ kafkacat -L -b localhost
 ## solar-panel-emulator
 
 This service is responsible for generating solar plant device data - readings from various kinds of sensors.
-In the simplest variant this can be just a bunch of kafka producers. In the provided example scaffolding - this is Akka application.
-Speaking of deployment, scaling and location transparency - Akka applications can be built behind principles stated in https://doc.akka.io/docs/akka/2.5/general/remoting.html.
-That way you just write your actor hierarchy and where they're going to be deployed is a matter of configuration. Although clustering and remoting mostly is not part of our course you can consider and experiment with these features.
-Here are a few directions you can improve this assignment (bonus):
- - actor supervision strategies and random device outages emulation (configurable)
- - add akka nodes and deploy plant actors remotely
- - add akka clustering
-
-You can get inspiration on protocol and some corner cases here - https://doc.akka.io/docs/akka/2.5/guide/tutorial_2.html.
-Deeper your go - more complex your protocol and application is going to be.
+In the simplest variant this can be just a bunch of kafka producers. 
 
 ## weather-provider
 

@@ -3,3 +3,5 @@ target
 _readme.md
 /MSKKeyPair.pem
 /credentials.csv
+/.sbt-hydra-history
+/project/.bloop/streaming-ucu-final-build.json
