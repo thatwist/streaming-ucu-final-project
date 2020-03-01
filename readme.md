@@ -25,7 +25,7 @@ To build all of the components - simply run `sbt docker` from the root project f
 
 To deploy local environment and start testing - simply run `docker-compose up` from the root project folder.
 
-   On the first run, you will se topic not found errors in logs - thats because KAFKA_AUTO_CREATE_TOPICS_ENABLE is trned off - you should create topic with appropriate replication factor and number of partitions (see below), while not stopping running cluster.
+   On the first run, you will se topic not found errors in logs - thats because KAFKA_AUTO_CREATE_TOPICS_ENABLE is turned off - you should create topic with appropriate replication factor and number of partitions (see below), while not stopping running cluster.
 
 Example:
 ```
@@ -110,7 +110,7 @@ docker run --net=host --rm confluentinc/cp-kafka:5.1.0 kafka-topics --create --t
    ./kafka_client.sh
    ```
 
-   If you're on Windows - then configure Putty accordingly - use MSKKeyPair.pem file provided to you.
+   If you're on Windows - then configure Putty accordingly - use kafka-client-ec2.pem file provided to you. And make sure you have appropriate permissions set up for the file, otherwise ssh client will warn you (on unix machines `chmod 600 kafka-client-ec2.pem`)
 
    Once logged in - you can run commands below from the home dir.
 
@@ -119,23 +119,23 @@ docker run --net=host --rm confluentinc/cp-kafka:5.1.0 kafka-topics --create --t
    - create/describe/list topics
      - create
      ```
-     kafka-topics.sh --zookeeper 10.0.2.170:2181,10.0.0.194:2181,10.0.1.119:2181 --create --topic test_topic_out --replication-factor 3 --partitions 2
+     kafka-topics.sh --zookeeper z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --create --topic test_topic_out --replication-factor 3 --partitions 2
      ```
      - describe
      ```
-     kafka-topics.sh --zookeeper 10.0.2.170:2181,10.0.0.194:2181,10.0.1.119:2181 --describe --topic test_topic_out
+     kafka-topics.sh --zookeeper z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --describe --topic test_topic_out
      ```
      - list
      ```
-     kafka-topics.sh --zookeeper 10.0.2.170:2181,10.0.0.194:2181,10.0.1.119:2181 --list
+     kafka-topics.sh --zookeeper z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --list
      ```
    - consume topic
      ```
-     kafka-console-consumer.sh --bootstrap-server 10.0.1.107:9092,10.0.2.71:9092,10.0.0.112:9092 --topic sensor-data --from-beginning
+     kafka-console-consumer.sh --bootstrap-server z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --topic sensor-data --from-beginning
      ```
    - produce into topic
      ```
-     kafka-console-producer.sh --broker-list 10.0.1.107:9092,10.0.2.71:9092,10.0.0.112:9092 --topic sensor-data
+     kafka-console-producer.sh --broker-list z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --topic sensor-data
      ```
 
 ###### **!!!** Important: the IP addresses of Kafka brokers may change and data in topics deleted. If so - you will be informed in the chat.
