@@ -5,3 +5,4 @@ _readme.md
 /credentials.csv
 /.sbt-hydra-history
 /project/.bloop/streaming-ucu-final-build.json
+/.metals

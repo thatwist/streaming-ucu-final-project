@@ -119,23 +119,23 @@ docker run --net=host --rm confluentinc/cp-kafka:5.1.0 kafka-topics --create --t
    - create/describe/list topics
      - create
      ```
-     kafka-topics.sh --zookeeper z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --create --topic test_topic_out --replication-factor 3 --partitions 2
+     kafka-topics.sh --zookeeper z-2.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181,z-3.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181 --create --topic test_topic_out --replication-factor 3 --partitions 2
      ```
      - describe
      ```
-     kafka-topics.sh --zookeeper z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --describe --topic test_topic_out
+     kafka-topics.sh --zookeeper z-2.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181,z-3.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181 --describe --topic test_topic_out
      ```
      - list
      ```
-     kafka-topics.sh --zookeeper z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --list
+     kafka-topics.sh --zookeeper z-2.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181,z-3.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:2181 --list
      ```
    - consume topic
      ```
-     kafka-console-consumer.sh --bootstrap-server z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --topic sensor-data --from-beginning
+     kafka-console-consumer.sh --bootstrap-server b-2.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:9092,b-3.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:9092,b-1.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:9092 --topic test_topic_out --from-beginning
      ```
    - produce into topic
      ```
-     kafka-console-producer.sh --broker-list z-3.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-2.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181,z-1.ucustreamingclass.mf5zba.c7.kafka.us-east-1.amazonaws.com:2181 --topic sensor-data
+     kafka-console-producer.sh --broker-list b-2.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:9092,b-3.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:9092,b-1.ucustreamingclass.6parrd.c7.kafka.us-east-1.amazonaws.com:9092 --topic test_topic_out
      ```
 
 ###### **!!!** Important: the IP addresses of Kafka brokers may change and data in topics deleted. If so - you will be informed in the chat.

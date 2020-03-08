@@ -1,0 +1,9 @@
+{
+   "EncryptionAtRest": {
+       "DataVolumeKMSKeyId": "arn:aws:kms:us-east-1:768305773658:key/1a1ea99d-a9d2-4d12-b25c-7bd49f413bd9"
+    },
+   "EncryptionInTransit": {
+        "InCluster": true,
+        "ClientBroker": "PLAINTEXT"
+    }
+}
